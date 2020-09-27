@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    
+    <!--first container, title and navbar-->
+    <div class="container-fluid bg-dark">
+        <div class="row-fluid">
+            <div class="p-1 bg-dark text-white ">
+                FDPblog   
+            </div>
+            
+            <!--navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                Menù: 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog_home.html">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" >Accedi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" >
+                                Articoli:
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="blog_article_1.html">Articolo 1</a>
+                                <a class="dropdown-item" href="blog_article_2.html">Articolo 2</a>
+                                <a class="dropdown-item" href="blog_article_3.html">Articolo 3</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+        </div>    
+    </div>
+    <div class="container-fluid bg-dark">
+        <div class="row align-items-start">
+            <div class="col-3"></div>
+            <div class="col align-self-center mt-5">
+                <div class="border border-secondary bg-white" id="sign_in_section">
+                    <h1 class="text-center">
+                        Accedi:
+                    </h1>
+                    <p class="p-2">E-mail Address:</p>
+                    <input type="text" id="mail_area" class="form-control ml-2 w-75">
+                    <p class="p-2">Password:</p>
+                    <input type="text" id="password_area" class="form-control ml-2 w-75">
+                    <div class="ml-5">
+                        <div class="mt-4 ml-5 mb-3">
+                            <button class="btn btn-secondary ml-5" id="Enter_button">
+                                Entra
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <!--footer-->
+        <footer>
+            <div class="p-3 bg-light mt-5 mb-2">
+                <h5 style="font-size: 1rem" class="mt-1">Ferdinando Di Pasquale</h5>
+                <p style="font-size: 0.9rem">bla bla bla <br> bla bla bla <br> bla bla <br></p>
+            </div>
+            <div class="p-1 bg-dark mt-2">
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            var cont=0;
+           $('#Enter_button').click(function(){
+               var Password_text=$('#password_area').val();
+               $('#password_area').val("");
+               if( Password_text != 'ciao'){
+                   console.log(Password_text);
+                   if(cont == 0){
+                   $('<div class="alert alert-danger">Password errata</div>').appendTo('#sign_in_section');
+                    cont=cont+1;   
+                 }
+               }
+           }); 
+        })
+    </script>
+</body>
+</html>
