@@ -53,6 +53,7 @@
                     </h1>
                     <img src="immagine_5.jpg" class="d-block w-50 mx-auto">
                     <p class="ml-2 mr-2"><br>bla bla bla bla bla bla</p>
+                    <button type="button" class="btn btn-outline-secondary" id="Like_button">Like</button>
                 </div>
             </div>
             <div class="col-2"></div>
@@ -70,7 +71,9 @@
             </div>
             <div class="row">
                 <div class="col-2"></div>
-                <div class="col" id="comment_bar"></div>
+                <div class="col" id="comment_bar">
+                    <ul class="list-group" id="comment_list"></ul>
+                </div>
                 <div class="col-2"></div>
             </div>
         <!--footer-->
@@ -95,9 +98,23 @@
                 var comment_text=$('#text_area').val();
                 console.log(comment_text);
                 $('#text_area').val("");
-                $('<div class="alert alert-secondary">Utente scrive: '+comment_text+'</div>').appendTo('#comment_bar');
-            })
+                var comment_item='<li class="list-group-item">Utente scrive: '+comment_text+'</li>'
+                $('#comment_list').append(comment_item);
+            });
         })
+        $(document).ready(function(){
+            var like_active=0;
+            $('#Like_button').click(function(){
+                if(like_active ==0){
+                    $('#Like_button').removeClass('btn btn-outline-secondary');
+                    $('#Like_button').addClass('btn btn-secondary');
+                    like_active=1;
+                }else{
+                    $('#Like_button').removeClass('btn btn-secondary');
+                    $('#Like_button').addClass('btn btn-outline-secondary');
+                    like_active=0;
+                }
+            });})
     </script>
 </body>
 </html>
